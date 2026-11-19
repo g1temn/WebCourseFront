@@ -1,0 +1,287 @@
+@use "sass:list";
+@use "@/styles" as *;
+
+.section {
+  scroll-margin-top: $header-height + $space-16;
+}
+
+.title {
+  font-family: $font-display;
+  font-weight: $weight-semibold;
+  font-size: $size-h2-phone;
+  line-height: 1.25;
+  color: $color-dark;
+  margin-bottom: $space-5;
+  @include tablet-up { font-size: 28px; margin-bottom: $space-6; }
+  @include desktop-up { font-size: $size-h2-card; }
+}
+
+.subtitle {
+  margin: -$space-3 0 $space-5;
+  color: $color-muted;
+}
+
+.about {
+  max-width: 820px;
+  overflow: hidden;
+
+  p + p { margin-top: 14px; }
+}
+
+.aboutImage {
+  float: right;
+  width: 46%;
+  height: auto;
+  max-width: 280px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin: 0 0 $space-3 $space-4;
+  border-radius: $radius-md;
+  border: $border-width solid $color-border;
+
+  @include tablet-up { width: 240px; margin: 0 0 $space-4 $space-8; }
+  @include desktop-up { width: 280px; }
+}
+
+.topics {
+  @include grid-cols(1, $space-3);
+  @include tablet-up { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: $space-3; }
+  @include desktop-up { gap: 18px; }
+}
+
+.topic {
+  background: $color-surface;
+  border: $border-width solid $color-border;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  @include phone-only { border-radius: $radius-md; }
+
+  &[open] .topicChevron { transform: rotate(180deg); }
+}
+
+.topicHead {
+  @include flex-between($space-2);
+  padding: 18px 22px;
+  list-style: none;
+  @include phone-only { padding: 14px $space-4; cursor: pointer; }
+  &::-webkit-details-marker { display: none; }
+
+  b {
+    font-family: $font-display;
+    font-weight: $weight-semibold;
+    font-size: $size-h4;
+  }
+  span { font-family: $font-label; font-size: $size-2xs; font-weight: $weight-semibold; }
+}
+
+.topicChevron { transition: transform $transition-base; }
+
+@each $tech, $pair in $tech-colors {
+  .#{$tech} .topicHead {
+    background: list.nth($pair, 2);
+    color: list.nth($pair, 1);
+  }
+}
+
+.topicList {
+  margin: 0;
+  padding: 18px 22px 22px 40px;
+  list-style-image: url("@/assets/images/list-marker.svg");
+  @include flex-col($space-2);
+  font-size: $size-sm;
+
+  li { padding-left: $space-1; }
+}
+
+.process {
+  @include reset-list;
+  @include grid-cols(1, $space-3);
+
+  @include tablet-up { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+
+.step {
+  @include flex-col(10px);
+  padding: $space-5;
+  border-radius: $radius-md;
+  background: $color-surface;
+  border: $border-width solid $color-border;
+
+  b { font-family: $font-label; color: $color-dark; line-height: 1.35; }
+  span:last-child { font-size: $size-xs; color: $color-muted; }
+
+  @include tablet-only { padding: 14px; }
+
+  @include phone-only {
+    position: relative;
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    column-gap: $space-4;
+    row-gap: 2px;
+    padding: 0 0 $space-5;
+    border: 0;
+    background: none;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 15px;
+      top: 32px;
+      bottom: 0;
+      width: 2px;
+      background: $color-border;
+    }
+    &:last-child::before { display: none; }
+    b, span:last-child { grid-column: 2; }
+    .stepNumber { grid-row: span 2; }
+  }
+}
+
+.stepNumber {
+  @include flex-center;
+  width: 36px;
+  height: 36px;
+  border-radius: $radius-round;
+  background: $color-primary;
+  color: $color-white;
+  font-family: $font-label;
+  font-weight: $weight-bold;
+  @include phone-only { width: 32px; height: 32px; font-size: $size-xs; }
+}
+
+.stepLast {
+  background: $color-dark;
+  border-color: $color-dark;
+  color: $color-on-dark;
+  b { color: $color-white; }
+  span:last-child { color: $color-on-dark; }
+  .stepNumber { background: $color-white; color: $color-dark; }
+
+  @include phone-only {
+    background: none;
+    b { color: $color-dark; }
+    span:last-child { color: $color-muted; }
+    .stepNumber { background: $color-dark; color: $color-white; }
+  }
+}
+
+.variants {
+  @include reset-list;
+  @include auto-grid(200px, 10px);
+  font-size: $size-sm;
+  @include phone-only { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.variant {
+  @include flex-row(10px, flex-start);
+  padding: $space-3 14px;
+  border-radius: $radius-sm;
+  background: $color-surface;
+  border: $border-width solid $color-border;
+
+  span { color: $color-primary; font-family: $font-label; font-weight: $weight-bold; min-width: 20px; }
+}
+
+.more {
+  margin-top: 14px;
+  padding: 11px $space-5;
+  border-radius: $radius-pill;
+  border: $border-width-control solid $color-border;
+  background: $color-surface;
+  color: $color-dark;
+  font-family: $font-label;
+  font-size: $size-sm;
+  font-weight: $weight-semibold;
+  cursor: pointer;
+  &:hover { border-color: $color-dark; }
+  @include phone-only { width: 100%; }
+}
+
+.location {
+  @include flex-wrap(0, stretch);
+  border-radius: $radius-lg;
+  overflow: hidden;
+  border: $border-width solid $color-border;
+  background: $color-surface;
+}
+
+.map {
+  flex: 2 1 420px;
+  min-height: 280px;
+  @include tablet-up { min-height: 340px; }
+}
+
+.place {
+  flex: 1 1 260px;
+  padding: $space-6;
+  @include flex-col($space-4);
+  @include desktop-up { padding: $space-7; }
+
+  img { align-self: flex-start; height: 56px; width: auto; max-width: 100%; margin-bottom: 6px; }
+  b { font-family: $font-display; font-weight: $weight-semibold; font-size: $size-h4; color: $color-dark; }
+}
+
+.placeRow {
+  font-style: normal;
+  @include flex-row(10px, flex-start);
+  color: $color-muted;
+  svg { flex: 0 0 auto; margin-top: 3px; }
+}
+
+.placeLink {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.methodics {
+  @include flex-col($space-3);
+}
+
+.pdf {
+  @include flex-row(18px);
+  padding: 18px 22px;
+  border-radius: $radius-md;
+  background: $color-surface;
+  border: $border-width solid $color-border;
+  color: $color-text;
+  text-decoration: none;
+  transition: border-color $transition-fast;
+
+  &:hover { border-color: $color-muted; color: $color-text; }
+  @include phone-only { padding: 14px $space-4; gap: 14px; }
+}
+
+.pdfIcon {
+  @include flex-center;
+  flex: 0 0 48px;
+  height: 56px;
+  border-radius: $radius-sm;
+  font-family: $font-label;
+  font-size: $size-3xs;
+  font-weight: $weight-bold;
+  @include phone-only { flex-basis: 40px; height: 48px; }
+}
+
+@each $tech, $pair in $tech-colors {
+  .pdf.#{$tech} .pdfIcon {
+    background: list.nth($pair, 2);
+    color: list.nth($pair, 1);
+  }
+}
+
+.pdfText {
+  flex: 1;
+  min-width: 0;
+  b { font-family: $font-label; color: $color-dark; }
+  span { display: block; font-size: $size-sm; color: $color-muted; }
+}
+
+.pdfAction {
+  @include inline-flex(6px);
+  font-family: $font-label;
+  font-weight: $weight-semibold;
+  font-size: $size-sm;
+  color: $color-primary;
+
+  @include phone-only { span { display: none; } }
+}
