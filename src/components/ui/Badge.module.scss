@@ -1,0 +1,44 @@
+@use "sass:map";
+@use "sass:list";
+@use "@/styles" as *;
+
+.badge {
+  display: inline-block;
+  border-radius: $radius-pill;
+  font-family: $font-label;
+  font-weight: $weight-semibold;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.xs {
+  padding: 1px 8px;
+  font-size: $size-3xs;
+}
+.sm {
+  padding: 3px 10px;
+  font-size: $size-2xs;
+}
+.md {
+  padding: 4px 12px;
+  font-size: $size-xs;
+}
+
+@each $tech, $pair in $tech-colors {
+  .#{$tech} {
+    background: list.nth($pair, 2);
+    color: list.nth($pair, 1);
+  }
+}
+
+.outline {
+  background: $color-surface;
+  border: $border-width solid $color-border;
+  color: $color-muted;
+  font-weight: $weight-medium;
+}
+
+.sunken {
+  background: $color-sunken;
+  color: $color-muted;
+}

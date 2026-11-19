@@ -1,0 +1,107 @@
+@use "@/styles" as *;
+
+.toc {
+  font-size: $size-xs;
+}
+
+.title {
+  margin-bottom: $space-3;
+  font-family: $font-label;
+  font-size: $size-3xs;
+  font-weight: $weight-bold;
+  letter-spacing: $tracking-caps;
+  text-transform: uppercase;
+  color: $color-muted;
+}
+
+.list {
+  @include flex-col;
+  border-left: 2px solid $color-border;
+}
+
+.link {
+  margin-left: -2px;
+  padding: 6px 14px;
+  border-left: 2px solid transparent;
+  font-family: $font-label;
+  font-weight: $weight-medium;
+  color: $color-muted;
+  text-decoration: none;
+  line-height: 1.45;
+
+  &:hover {
+    color: $color-dark;
+  }
+
+  &[aria-current="location"] {
+    border-left-color: $color-primary;
+    color: $color-primary;
+    font-weight: $weight-semibold;
+  }
+}
+
+.dropdown {
+  position: relative;
+  min-width: 0;
+}
+
+.trigger {
+  @include flex-between($space-2);
+  width: 100%;
+  min-height: $tap-size;
+  padding: 10px $space-4;
+  border-radius: $radius-sm;
+  border: $border-width solid $color-border;
+  background: $color-surface;
+  font-size: $size-xs;
+  color: $color-text;
+  cursor: pointer;
+  text-align: left;
+}
+
+.triggerText {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.triggerLabel {
+  color: $color-muted;
+}
+
+.panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + #{$space-2});
+  z-index: $z-dropdown;
+  width: max(100%, 260px);
+  max-height: 60vh;
+  overflow-y: auto;
+  padding: $space-2;
+  border-radius: $radius-md;
+  border: $border-width solid $color-border;
+  background: $color-surface;
+  box-shadow: $shadow-pop;
+  @include flex-col;
+}
+
+.panelLink {
+  padding: 10px $space-3;
+  border-radius: $radius-sm;
+  font-family: $font-label;
+  font-size: $size-xs;
+  font-weight: $weight-medium;
+  color: $color-text;
+  text-decoration: none;
+
+  &:hover {
+    background: $color-sunken;
+    color: $color-dark;
+  }
+  &[aria-current="location"] {
+    background: $color-primary-soft;
+    color: $color-primary;
+    font-weight: $weight-semibold;
+  }
+}

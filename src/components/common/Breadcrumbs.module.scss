@@ -1,0 +1,24 @@
+@use "@/styles" as *;
+
+.crumbs {
+  font-size: $size-xs;
+  color: $color-muted;
+
+  a {
+    color: $color-muted;
+    text-underline-offset: 2px;
+  }
+  a:hover {
+    color: $color-dark;
+  }
+}
+
+.onDark {
+  color: $color-on-dark-muted;
+  a {
+    color: $color-on-dark-muted;
+  }
+  a:hover {
+    color: $color-white;
+  }
+}

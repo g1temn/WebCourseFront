@@ -1,0 +1,53 @@
+@use "@/styles" as *;
+
+.dialog {
+  width: min(1200px, 100vw - #{$space-8});
+  max-width: none;
+  max-height: calc(100vh - #{$space-8});
+  padding: $space-6;
+  border: 0;
+  border-radius: $radius-lg;
+  background: $color-surface;
+  box-shadow: $shadow-pop;
+  overflow: auto;
+
+  &::backdrop {
+    background: $color-backdrop;
+  }
+
+  @include phone-only {
+    width: 100vw;
+    max-height: 100vh;
+    padding: $space-4;
+    border-radius: 0;
+  }
+}
+
+.close {
+  @include reset-button;
+  position: sticky;
+  top: 0;
+  float: right;
+  z-index: 1;
+  width: $tap-size;
+  height: $tap-size;
+  border-radius: $radius-round;
+  background: $color-surface;
+  border: $border-width solid $color-border;
+  @include flex-center;
+}
+
+.figure {
+  margin: 0;
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: $radius-sm;
+    border: $border-width solid $color-border;
+  }
+  figcaption {
+    margin-top: $space-3;
+    font-size: $size-xs;
+    color: $color-muted;
+  }
+}

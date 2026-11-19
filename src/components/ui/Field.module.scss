@@ -1,0 +1,68 @@
+@use "@/styles" as *;
+
+.field {
+  @include flex-col($space-2);
+  min-width: 0;
+}
+
+.full {
+  @include grid-full-row;
+}
+
+.label {
+  font-family: $font-label;
+  font-size: $size-sm;
+  font-weight: $weight-semibold;
+  color: $color-text;
+}
+
+.hint {
+  font-family: $font-body;
+  font-weight: $weight-regular;
+  color: $color-muted;
+}
+
+.control {
+  width: 100%;
+  padding: 13px $space-4;
+  border-radius: $radius-sm;
+  border: $border-width-control solid $color-border;
+  background: $color-surface;
+  font-family: $font-body;
+  font-size: $size-ui;
+  color: $color-text;
+  transition:
+    border-color $transition-fast,
+    box-shadow $transition-fast;
+
+  &::placeholder {
+    color: $color-muted;
+    opacity: 0.85;
+  }
+  &:hover {
+    border-color: $color-muted;
+  }
+  &:focus {
+    @include focus-ring;
+    border-color: $color-primary;
+  }
+  &[aria-invalid="true"] {
+    border-color: $color-primary;
+  }
+}
+
+select.control {
+  font-weight: $weight-medium;
+  cursor: pointer;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.error {
+  font-size: $size-2xs;
+  font-weight: $weight-medium;
+  color: $color-primary;
+}

@@ -1,0 +1,109 @@
+@use "@/styles" as *;
+
+.button {
+  @include inline-flex($space-2);
+  justify-content: center;
+  border-radius: $radius-pill;
+  border: $border-width-control solid transparent;
+  font-family: $font-label;
+  font-weight: $weight-semibold;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color $transition-fast,
+    color $transition-fast,
+    border-color $transition-fast;
+
+  svg {
+    flex: 0 0 auto;
+  }
+}
+
+.sm {
+  padding: 8px 14px;
+  font-size: $size-xs;
+}
+.md {
+  padding: 13px 22px;
+  font-size: $size-ui;
+  gap: 10px;
+}
+.lg {
+  padding: 15px 26px;
+  font-size: $size-ui;
+  gap: 10px;
+}
+.block {
+  display: flex;
+  width: 100%;
+}
+
+.primary {
+  background: $color-primary;
+  color: $color-white;
+  &:hover {
+    background: $color-primary-hover;
+    color: $color-white;
+  }
+}
+
+.secondary {
+  background: $color-surface;
+  border-color: $color-border;
+  color: $color-dark;
+  &:hover {
+    border-color: $color-dark;
+    color: $color-dark;
+  }
+}
+
+.outline {
+  background: transparent;
+  border-color: $color-dark;
+  color: $color-dark;
+  &:hover {
+    background: $color-dark;
+    color: $color-white;
+  }
+}
+
+.ghost {
+  background: transparent;
+  color: $color-muted;
+  &:hover {
+    color: $color-dark;
+    background: $color-sunken;
+  }
+}
+
+.light {
+  background: $color-white;
+  color: $color-primary;
+  font-weight: $weight-bold;
+  &:hover {
+    background: $color-primary-soft;
+    color: $color-primary-hover;
+  }
+}
+
+.onDark {
+  background: transparent;
+  border-color: $color-on-dark;
+  color: $color-white;
+  &:hover {
+    background: $color-on-dark-hover;
+    color: $color-white;
+  }
+}
+
+.onDarkOutline {
+  background: transparent;
+  border-color: $color-white;
+  color: $color-white;
+  &:hover {
+    background: $color-white;
+    color: $color-dark;
+  }
+}

@@ -1,0 +1,8 @@
+@use "@/styles" as *;
+
+.container {
+  @include container;
+}
+.wide {
+  max-width: $container-wide;
+}

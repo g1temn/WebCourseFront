@@ -1,0 +1,70 @@
+@use "@/styles" as *;
+
+.callout {
+  @include flex-row($space-4, center);
+  padding: $space-5 22px;
+  border-radius: $radius-md;
+  color: $color-text;
+  margin-block: $space-6;
+}
+
+.icon {
+  flex: 0 0 24px;
+}
+
+.body {
+  min-width: 0;
+}
+
+.title {
+  font-family: $font-label;
+  font-weight: $weight-semibold;
+}
+
+.text {
+  margin-top: 6px;
+  font-size: $size-ui;
+
+  p + p {
+    margin-top: $space-2;
+  }
+  ul,
+  ol {
+    margin: $space-2 0 0;
+    padding-left: $space-5;
+  }
+}
+
+.modern {
+  background: $color-dark-soft;
+  .icon,
+  .title {
+    color: $color-dark;
+  }
+}
+
+.warning {
+  background: $color-primary-soft;
+  .icon {
+    color: $color-primary;
+  }
+  .title {
+    color: $color-primary-hover;
+  }
+}
+
+.tip {
+  background: $color-success-soft;
+  .icon,
+  .title {
+    color: $color-success;
+  }
+}
+
+.info {
+  background: $color-css-soft;
+  .icon,
+  .title {
+    color: $color-css;
+  }
+}

@@ -1,0 +1,17 @@
+@use "@/styles" as *;
+
+.eyebrow {
+  @include eyebrow;
+  @include phone-only {
+    font-size: $size-2xs;
+  }
+}
+
+.title {
+  @include heading-2;
+  margin-top: 10px;
+}
+
+.onDark .title {
+  color: $color-white;
+}

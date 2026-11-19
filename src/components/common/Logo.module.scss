@@ -1,0 +1,79 @@
+@use "@/styles" as *;
+
+.logo {
+  @include flex-row($space-3);
+  color: $color-on-dark;
+}
+
+.mark {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border-radius: $radius-md;
+  background: $color-primary;
+  color: $color-white;
+  box-shadow: $shadow-logo-mark;
+  @include flex-center;
+
+  svg {
+    width: 60%;
+    height: 60%;
+  }
+  @include tablet-up {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+.markSmall {
+  width: 44px;
+  height: 44px;
+  @include tablet-up {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+.name {
+  @include flex-col;
+  line-height: 1.1;
+  font-family: $font-display;
+  white-space: nowrap;
+
+  b {
+    font-weight: $weight-bold;
+    font-size: $size-h4;
+    color: $color-white;
+  }
+  span {
+    font-weight: $weight-medium;
+    font-size: $size-xs;
+    color: $color-on-dark;
+  }
+
+  @include tablet-up {
+    b {
+      font-size: $size-h3;
+    }
+    span {
+      font-size: $size-ui;
+    }
+  }
+}
+
+.lg .mark {
+  width: 48px;
+  height: 48px;
+}
+
+.divider {
+  width: 1px;
+  height: 40px;
+  background: $color-on-dark-line;
+  margin: 0 $space-1;
+}
+
+.university {
+  height: 46px;
+  width: auto;
+}
