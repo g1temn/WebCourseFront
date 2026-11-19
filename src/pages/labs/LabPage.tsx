@@ -13,6 +13,9 @@ const pages: Record<string, LazyExoticComponent<ComponentType>> = {
   "lab-6": lazy(() => import("./Lab6Page/Lab6Page")),
   "lab-7": lazy(() => import("./Lab7Page/Lab7Page")),
   "lab-8": lazy(() => import("./Lab8Page/Lab8Page")),
+  "lab-9-1": lazy(() => import("./Lab9_1Page/Lab9_1Page")),
+  "lab-9-2": lazy(() => import("./Lab9_2Page/Lab9_2Page")),
+  "lab-9-3": lazy(() => import("./Lab9_3Page/Lab9_3Page")),
 };
 
 export function LabPage() {
