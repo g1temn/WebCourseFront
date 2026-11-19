@@ -1,0 +1,109 @@
+@use "colors" as *;
+@use "breakpoints" as *;
+
+$font-display: "Bitter", Georgia, serif;
+$font-label: "Rubik", system-ui, sans-serif;
+$font-body: "Onest", system-ui, sans-serif;
+$font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+$weight-regular: 400;
+$weight-medium: 500;
+$weight-semibold: 600;
+$weight-bold: 700;
+
+$size-display: 54px;
+$size-display-tablet: 40px;
+$size-display-phone: 32px;
+$size-h1: 40px;
+$size-h1-phone: 26px;
+$size-h2: 36px;
+$size-h2-tablet: 30px;
+$size-h2-phone: 24px;
+$size-h2-card: 30px;
+$size-h3: 20px;
+$size-h4: 18px;
+$size-lead: 19px;
+$size-body: 17px;
+$size-body-phone: 16px;
+$size-ui: 16px;
+$size-sm: 15px;
+$size-xs: 14px;
+$size-2xs: 13px;
+$size-3xs: 12px;
+$size-code: 14px;
+$size-code-sm: 13px;
+$size-stat: 28px;
+
+$line-tight: 1.12;
+$line-heading: 1.2;
+$line-snug: 1.4;
+$line-body: 1.6;
+$line-code: 1.75;
+
+$tracking-caps: 0.08em;
+$tracking-caps-sm: 0.06em;
+$tracking-display: -0.01em;
+
+@mixin display {
+  font-family: $font-display;
+  font-weight: $weight-bold;
+  font-size: $size-display-phone;
+  line-height: $line-tight;
+  letter-spacing: $tracking-display;
+  @include tablet-up { font-size: $size-display-tablet; }
+  @include desktop-up { font-size: $size-display; }
+}
+
+@mixin heading-1 {
+  font-family: $font-display;
+  font-weight: $weight-bold;
+  font-size: $size-h1-phone;
+  line-height: $line-heading;
+  color: $color-dark;
+  @include tablet-up { font-size: $size-h1; }
+}
+
+@mixin heading-2 {
+  font-family: $font-display;
+  font-weight: $weight-semibold;
+  font-size: $size-h2-phone;
+  line-height: $line-heading;
+  color: $color-dark;
+  @include tablet-up { font-size: $size-h2-tablet; }
+  @include desktop-up { font-size: $size-h2; }
+}
+
+@mixin heading-3 {
+  font-family: $font-label;
+  font-weight: $weight-semibold;
+  font-size: $size-h3;
+  line-height: $line-snug;
+  color: $color-dark;
+}
+
+@mixin eyebrow {
+  font-family: $font-label;
+  font-size: $size-xs;
+  font-weight: $weight-semibold;
+  letter-spacing: $tracking-caps;
+  text-transform: uppercase;
+  color: $color-primary;
+}
+
+@mixin label {
+  font-family: $font-label;
+  font-weight: $weight-semibold;
+}
+
+@mixin body-text {
+  font-family: $font-body;
+  font-size: $size-body-phone;
+  line-height: $line-body;
+  @include tablet-up { font-size: $size-body; }
+}
+
+@mixin mono($size: $size-code) {
+  font-family: $font-mono;
+  font-size: $size;
+  line-height: $line-code;
+}

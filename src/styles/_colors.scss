@@ -1,0 +1,59 @@
+$color-bg: #FAF6F1;
+$color-surface: #FFFFFF;
+$color-sunken: #F2E9DF;
+$color-border: #DCCCBA;
+$color-code-bg: #FFFBF7;
+
+$color-text: #1D1412;
+$color-muted: #574740;
+$color-white: #FFFFFF;
+
+$color-primary: #B3261E;
+$color-primary-hover: #8C1D18;
+$color-primary-soft: #FBE7E4;
+$color-primary-on-dark: #FF8F85;
+$color-check-on-dark: #F2A49B;
+
+$color-dark: #2B1316;
+$color-dark-soft: #F1E7E1;
+$color-on-dark: #F7EBE3;
+$color-on-dark-muted: #D7C1B7;
+$color-on-dark-line: rgba(247, 235, 227, 0.28);
+$color-on-dark-fill: rgba(247, 235, 227, 0.08);
+$color-on-dark-hover: rgba(247, 235, 227, 0.14);
+$color-dark-bar: rgba(43, 19, 22, 0.85);
+
+$color-overlay-dark: rgba(43, 19, 22, 0.88);
+$color-overlay-light: rgba(250, 246, 241, 0.86);
+$color-backdrop: rgba(29, 20, 18, 0.72);
+
+$color-html: #A8431A;
+$color-html-soft: #F8E4D8;
+$color-css: #1F5A8A;
+$color-css-soft: #E1ECF6;
+$color-figma: #7A3366;
+$color-figma-soft: #F3E2EE;
+$color-js: #7A5A00;
+$color-js-soft: #FBF1D0;
+
+$color-success: #2F6B36;
+$color-success-soft: #E2F0E0;
+$color-danger: $color-primary;
+
+$code-tag: #A8431A;
+$code-attr: #1F5A8A;
+$code-string: #2F6B36;
+$code-comment: #75645A;
+$code-keyword: #7A3366;
+$code-number: #7A5A00;
+
+$color-map-ground: #EFE6D8;
+$color-map-park: #DCE8D2;
+$color-map-water: #D6E3EE;
+
+$tech-colors: (
+  html: ($color-html, $color-html-soft),
+  css: ($color-css, $color-css-soft),
+  figma: ($color-figma, $color-figma-soft),
+  js: ($color-js, $color-js-soft),
+);
