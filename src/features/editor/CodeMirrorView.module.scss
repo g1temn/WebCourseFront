@@ -1,0 +1,109 @@
+@use "@/styles" as *;
+
+.host {
+  height: 100%;
+  min-height: 0;
+
+  :global(.cm-editor) {
+    height: 100%;
+    background: $color-code-bg;
+    color: $color-text;
+    font-size: $size-code;
+    @include phone-only {
+      font-size: $size-code-sm;
+    }
+  }
+  :global(.cm-editor.cm-focused) {
+    outline: none;
+  }
+  :global(.cm-scroller) {
+    font-family: $font-mono;
+    line-height: $line-code;
+    overflow: auto;
+  }
+  :global(.cm-content) {
+    padding: $space-4 0;
+    caret-color: $color-primary;
+  }
+  :global(.cm-line) {
+    padding: 0 $space-5 0 $space-2;
+  }
+  :global(.cm-gutters) {
+    background: $color-code-bg;
+    border: 0;
+    color: $code-comment;
+    padding-left: $space-2;
+  }
+  :global(.cm-activeLine) {
+    background: rgba($color-primary-soft, 0.45);
+  }
+  :global(.cm-activeLineGutter) {
+    background: transparent;
+    color: $color-text;
+  }
+  :global(.cm-cursor) {
+    border-left: 2px solid $color-primary;
+  }
+  :global(.cm-selectionBackground),
+  :global(.cm-focused .cm-selectionBackground),
+  :global(.cm-content ::selection) {
+    background: $color-primary-soft !important;
+  }
+  :global(.cm-matchingBracket) {
+    background: $color-sunken;
+    outline: 1px solid $color-border;
+  }
+
+  :global(.cm-tooltip) {
+    border: $border-width solid $color-border;
+    border-radius: $radius-sm;
+    background: $color-surface;
+    box-shadow: $shadow-card;
+    font-family: $font-mono;
+    font-size: $size-2xs;
+  }
+  :global(.cm-tooltip-autocomplete > ul > li[aria-selected]) {
+    background: $color-primary-soft;
+    color: $color-primary;
+  }
+
+  :global(.tok-tagName),
+  :global(.tok-typeName),
+  :global(.tok-angleBracket),
+  :global(.tok-className),
+  :global(.tok-labelName) {
+    color: $code-tag;
+  }
+  :global(.tok-attributeName),
+  :global(.tok-propertyName) {
+    color: $code-attr;
+  }
+  :global(.tok-attributeValue),
+  :global(.tok-string),
+  :global(.tok-string2) {
+    color: $code-string;
+  }
+  :global(.tok-comment) {
+    color: $code-comment;
+    font-style: italic;
+  }
+  :global(.tok-keyword),
+  :global(.tok-operator),
+  :global(.tok-definitionKeyword) {
+    color: $code-keyword;
+  }
+  :global(.tok-number),
+  :global(.tok-unit),
+  :global(.tok-atom),
+  :global(.tok-bool) {
+    color: $code-number;
+  }
+  :global(.tok-variableName),
+  :global(.tok-definition) {
+    color: $color-text;
+  }
+  :global(.tok-meta),
+  :global(.tok-processingInstruction) {
+    color: $code-comment;
+  }
+}

@@ -26,4 +26,8 @@ export const router = createBrowserRouter([
       { path: "*", element: <NotFoundPage /> },
     ],
   },
+  {
+    path: "editor",
+    lazy: async () => ({ Component: (await import("./pages/EditorPage/EditorPage")).default }),
+  },
 ]);

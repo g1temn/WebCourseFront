@@ -1,0 +1,174 @@
+@use "@/styles" as *;
+
+.header {
+  flex: 0 0 auto;
+  @include flex-row($space-3);
+  height: 62px;
+  padding: 0 $space-5;
+  background: $color-dark;
+  border-bottom: $header-border solid $color-primary;
+  color: $color-on-dark;
+
+  @include phone-only { padding: 0 $space-3; gap: $space-2; }
+}
+
+.brand {
+  flex: 0 0 auto;
+  text-decoration: none;
+  span[aria-hidden] { width: 42px; height: 42px; }
+}
+
+.title {
+  display: none;
+  font-family: $font-label;
+  font-weight: $weight-semibold;
+  font-size: $size-sm;
+  color: $color-white;
+  @include desktop-up { display: inline; }
+}
+
+.divider {
+  display: none;
+  width: 1px;
+  height: 28px;
+  background: $color-on-dark-line;
+  @include desktop-up { display: block; }
+}
+
+.project {
+  @include flex-row($space-3);
+  min-width: 0;
+
+  select {
+    min-width: 0;
+    max-width: 220px;
+    padding: 8px 14px;
+    border-radius: $radius-sm;
+    border: $border-width solid $color-on-dark-line;
+    background: $color-on-dark-fill;
+    color: $color-white;
+    font-family: $font-label;
+    font-size: $size-xs;
+    font-weight: $weight-semibold;
+    cursor: pointer;
+
+    option { color: $color-text; background: $color-surface; }
+    @include phone-only { max-width: none; flex: 1; }
+  }
+
+  @include phone-only { flex: 1; }
+}
+
+.projectLabel {
+  display: none;
+  font-family: $font-label;
+  font-size: $size-sm;
+  color: $color-on-dark-muted;
+  @include desktop-up { display: inline; }
+}
+
+.right {
+  margin-left: auto;
+  @include flex-row($space-2);
+}
+
+.status {
+  @include inline-flex(6px);
+  padding: 6px $space-3;
+  border-radius: $radius-pill;
+  font-family: $font-label;
+  font-size: $size-2xs;
+  font-weight: $weight-semibold;
+  white-space: nowrap;
+
+  @include phone-only {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    justify-content: center;
+    border-radius: $radius-round;
+  }
+}
+
+.saved { background: $color-success-soft; color: $color-success; }
+.saving { background: $color-on-dark-fill; color: $color-on-dark; border: $border-width solid $color-on-dark-line; }
+.error { background: $color-primary-soft; color: $color-primary; }
+
+.statusFull { display: none; @include desktop-up { display: inline; } }
+.statusShort { @include desktop-up { display: none; } @include phone-only { display: none; } }
+
+.zip {
+  display: none;
+  @include desktop-up {
+    @include inline-flex($space-2);
+    padding: 8px $space-4;
+    border-radius: $radius-pill;
+    border: $border-width solid $color-on-dark-line;
+    background: transparent;
+    color: $color-white;
+    font-family: $font-label;
+    font-size: $size-xs;
+    font-weight: $weight-semibold;
+    cursor: pointer;
+    &:hover { background: $color-on-dark-hover; }
+  }
+}
+
+.reset {
+  display: none;
+  @include desktop-up {
+    display: inline-block;
+    padding: 8px $space-3;
+    border: 0;
+    background: none;
+    color: $color-on-dark;
+    font-family: $font-label;
+    font-size: $size-xs;
+    font-weight: $weight-semibold;
+    cursor: pointer;
+    &:hover { color: $color-white; text-decoration: underline; }
+  }
+}
+
+.more {
+  position: relative;
+  @include tablet-up { display: none; }
+}
+
+.moreButton {
+  @include flex-center;
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-sm;
+  border: $border-width solid $color-on-dark-line;
+  background: $color-on-dark-fill;
+  color: $color-white;
+  cursor: pointer;
+}
+
+.menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + #{$space-2});
+  z-index: $z-dropdown;
+  min-width: 220px;
+  padding: $space-2;
+  border-radius: $radius-md;
+  background: $color-surface;
+  border: $border-width solid $color-border;
+  box-shadow: $shadow-pop;
+  @include flex-col;
+
+  button, a {
+    @include reset-button;
+    @include flex-row(10px);
+    padding: 10px $space-3;
+    border-radius: $radius-sm;
+    font-family: $font-label;
+    font-size: $size-xs;
+    font-weight: $weight-medium;
+    color: $color-text;
+    text-decoration: none;
+    &:hover { background: $color-sunken; }
+  }
+}

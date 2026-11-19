@@ -1,0 +1,107 @@
+@use "@/styles" as *;
+
+.pane {
+  min-height: 0;
+  @include flex-col;
+  background: $color-surface;
+  border: $border-width solid $color-border;
+  border-radius: $radius-md;
+  overflow: hidden;
+}
+
+.head {
+  flex: 0 0 auto;
+  @include flex-row($space-2);
+  padding: $space-2 10px $space-2 $space-4;
+  background: $color-sunken;
+  border-bottom: $border-width solid $color-border;
+
+  b { font-family: $font-label; font-size: $size-xs; color: $color-dark; }
+}
+
+.page {
+  flex: 1;
+  min-width: 0;
+  font-family: $font-mono;
+  font-size: $size-3xs;
+  color: $color-muted;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.reload {
+  @include flex-center;
+  flex: 0 0 34px;
+  height: 34px;
+  border-radius: $radius-sm;
+  border: $border-width solid $color-border;
+  background: $color-surface;
+  color: $color-text;
+  cursor: pointer;
+  &:hover { border-color: $color-dark; }
+}
+
+.frame {
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 0;
+  border: 0;
+  background: $color-white;
+}
+
+.console {
+  flex: 0 0 auto;
+  border-top: $border-width solid $color-border;
+  background: $color-sunken;
+}
+
+.consoleOpen { max-height: 40%; @include flex-col; }
+
+.consoleToggle {
+  @include reset-button;
+  @include flex-between($space-2);
+  width: 100%;
+  padding: 10px $space-4;
+  font-family: $font-label;
+  font-size: $size-2xs;
+  font-weight: $weight-semibold;
+  color: $color-muted;
+}
+
+.chevronUp { transform: rotate(180deg); }
+
+.errorCount { color: $color-primary; }
+
+.consoleBody {
+  min-height: 0;
+  overflow: auto;
+  padding: 0 $space-4 $space-3;
+}
+
+.empty { font-size: $size-2xs; color: $color-muted; }
+
+.messages {
+  @include reset-list;
+  font-family: $font-mono;
+  font-size: $size-3xs;
+
+  li {
+    padding: 6px $space-2;
+    border-bottom: $border-width solid $color-border;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+}
+
+.log, .info { color: $color-text; }
+.warn { color: $color-js; background: $color-js-soft; }
+.error { color: $color-primary; background: $color-primary-soft; }
+
+.clear {
+  @include reset-button;
+  margin-top: $space-2;
+  font-size: $size-3xs;
+  font-weight: $weight-semibold;
+  color: $color-primary;
+}

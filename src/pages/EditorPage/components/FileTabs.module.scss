@@ -1,0 +1,94 @@
+@use "sass:list";
+@use "@/styles" as *;
+
+.bar {
+  flex: 0 0 auto;
+  @include flex-row($space-2, flex-end);
+  padding: 6px $space-2 0;
+  background: $color-sunken;
+  border-bottom: $border-width solid $color-border;
+  min-width: 0;
+}
+
+.tabs {
+  @include flex-row(2px, flex-end);
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tab {
+  @include flex-row(0);
+  flex: 0 0 auto;
+  margin-bottom: -1px;
+  border: $border-width solid transparent;
+  border-radius: 10px 10px 0 0;
+
+  &:hover .close { opacity: 1; }
+}
+
+.active {
+  border-color: $color-border;
+  border-bottom-color: $color-code-bg;
+  background: $color-code-bg;
+  .tabButton { color: $color-text; font-weight: $weight-medium; }
+  .close { opacity: 1; }
+}
+
+.tabButton {
+  @include reset-button;
+  @include inline-flex($space-2);
+  padding: 9px 6px 9px 14px;
+  font-family: $font-mono;
+  font-size: $size-2xs;
+  color: $color-muted;
+  white-space: nowrap;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: $color-muted;
+}
+
+@each $tech, $pair in $tech-colors {
+  .dot.#{$tech} { background: list.nth($pair, 1); }
+}
+
+.close {
+  @include reset-button;
+  @include flex-center;
+  width: 20px;
+  height: 20px;
+  margin-right: $space-2;
+  border-radius: $radius-xs;
+  color: $color-muted;
+  opacity: 0;
+  &:hover { background: $color-sunken; color: $color-dark; }
+  @media (hover: none) { opacity: 1; }
+}
+
+.add {
+  flex: 0 0 auto;
+  margin-bottom: 5px;
+  @include inline-flex($space-1);
+  padding: 6px 10px;
+  border-radius: $radius-sm;
+  border: $border-width dashed $color-border;
+  background: $color-surface;
+  font-family: $font-label;
+  font-size: $size-2xs;
+  font-weight: $weight-semibold;
+  color: $color-primary;
+  cursor: pointer;
+  &:hover { border-color: $color-primary; }
+
+  @include phone-only {
+    width: 34px;
+    height: 34px;
+    justify-content: center;
+    padding: 0;
+    span { display: none; }
+  }
+}

@@ -1,0 +1,117 @@
+@use "@/styles" as *;
+
+.page {
+  height: 100vh;
+  height: 100dvh;
+  min-height: 560px;
+  @include flex-col;
+  background: $color-bg;
+  color: $color-text;
+  font-size: $size-sm;
+}
+
+.desktop {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr) minmax(0, 1fr);
+  gap: $space-3;
+  padding: $space-3;
+}
+
+.tablet {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  gap: $space-3;
+  padding: 0 $space-4 $space-4;
+  grid-template-rows: minmax(0, 1fr);
+}
+
+.split { grid-template-rows: minmax(0, 1.1fr) minmax(0, 1fr); }
+
+.single {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+  padding: 0 $space-3 $space-3;
+}
+
+.fill { min-height: 0; display: grid; }
+.hidden { display: none; }
+
+.code {
+  min-height: 0;
+  @include flex-col;
+  background: $color-code-bg;
+  border: $border-width solid $color-border;
+  border-radius: $radius-md;
+  overflow: hidden;
+}
+
+.codeBody {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+
+  @include tablet-only { grid-template-columns: 180px minmax(0, 1fr); }
+}
+
+.cm { min-height: 0; min-width: 0; }
+
+.toolbar {
+  flex: 0 0 auto;
+  @include flex-between($space-3);
+  padding: $space-3 $space-4;
+  @include phone-only { padding: $space-3; }
+}
+
+.segmented {
+  display: flex;
+  padding: $space-1;
+  border-radius: $radius-pill;
+  background: $color-sunken;
+  @include phone-only { flex: 1; }
+
+  button {
+    @include reset-button;
+    padding: $space-2 14px;
+    border-radius: $radius-pill;
+    font-family: $font-label;
+    font-size: $size-xs;
+    font-weight: $weight-semibold;
+    color: $color-muted;
+    white-space: nowrap;
+
+    &[aria-selected="true"] { background: $color-surface; color: $color-dark; box-shadow: $shadow-card; }
+    @include phone-only { flex: 1; padding: 10px $space-2; }
+  }
+}
+
+.toolbarActions { @include flex-row($space-2); }
+
+.toolButton {
+  @include inline-flex(6px);
+  padding: 10px $space-4;
+  border-radius: $radius-pill;
+  border: $border-width-control solid $color-border;
+  background: $color-surface;
+  font-family: $font-label;
+  font-size: $size-xs;
+  font-weight: $weight-semibold;
+  color: $color-dark;
+  cursor: pointer;
+  &:hover { border-color: $color-dark; }
+}
+
+.toolText {
+  @include reset-button;
+  padding: 10px $space-3;
+  font-family: $font-label;
+  font-size: $size-xs;
+  font-weight: $weight-semibold;
+  color: $color-dark;
+  &:hover { text-decoration: underline; }
+}

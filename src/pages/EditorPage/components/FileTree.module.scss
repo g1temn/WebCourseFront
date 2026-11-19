@@ -1,0 +1,179 @@
+@use "sass:list";
+@use "@/styles" as *;
+
+.tree {
+  min-height: 0;
+  @include flex-col;
+  overflow: auto;
+  background: $color-surface;
+  border: $border-width solid $color-border;
+  border-radius: $radius-md;
+}
+
+.embedded {
+  border: 0;
+  border-right: $border-width solid $color-border;
+  border-radius: 0;
+  background: $color-bg;
+}
+
+.head {
+  @include flex-between($space-2);
+  padding: 10px 10px $space-2 14px;
+
+  b {
+    font-family: $font-label;
+    font-size: $size-3xs;
+    font-weight: $weight-semibold;
+    letter-spacing: $tracking-caps;
+    text-transform: uppercase;
+    color: $color-muted;
+  }
+}
+
+.headActions {
+  display: flex;
+  gap: $space-1;
+
+  button {
+    @include flex-center;
+    width: 30px;
+    height: 30px;
+    border-radius: $radius-xs;
+    border: $border-width solid $color-border;
+    background: $color-surface;
+    color: $color-text;
+    cursor: pointer;
+    &:hover { border-color: $color-dark; }
+  }
+}
+
+.dirHint {
+  margin: 0 10px $space-2 14px;
+  font-size: $size-3xs;
+  color: $color-muted;
+}
+
+.list {
+  @include reset-list;
+  padding: 0 6px;
+
+  ul { @include reset-list; }
+}
+
+.row {
+  @include flex-row(2px);
+  min-height: 32px;
+  border-radius: $radius-xs;
+  padding-left: calc(var(--depth, 0) * 18px);
+
+  &:hover { background: $color-sunken; .actions { opacity: 1; } }
+}
+
+.item {
+  @include reset-button;
+  flex: 1;
+  min-width: 0;
+  @include flex-row($space-2);
+  min-height: 32px;
+  padding: 0 $space-1 0 10px;
+  font-family: $font-mono;
+  font-size: $size-2xs;
+  color: $color-text;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.active {
+  background: $color-primary-soft;
+  .item { color: $color-primary; font-weight: $weight-semibold; }
+  &:hover { background: $color-primary-soft; }
+}
+
+.selectedDir .item { font-weight: $weight-semibold; }
+
+.chevron {
+  flex: 0 0 auto;
+  color: $color-muted;
+  margin-left: -4px;
+  transition: transform $transition-fast;
+}
+.chevronClosed { transform: rotate(-90deg); }
+
+.folderIcon { flex: 0 0 auto; color: $color-muted; }
+
+.dot {
+  flex: 0 0 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: $color-muted;
+}
+
+@each $tech, $pair in $tech-colors {
+  .dot.#{$tech} { background: list.nth($pair, 1); }
+}
+
+.actions {
+  display: flex;
+  gap: 2px;
+  padding-right: $space-1;
+  opacity: 0;
+  transition: opacity $transition-fast;
+
+  @media (hover: none) { opacity: 1; }
+
+  button {
+    @include flex-center;
+    width: 26px;
+    height: 26px;
+    border: 0;
+    border-radius: $radius-xs;
+    background: transparent;
+    color: $color-muted;
+    cursor: pointer;
+    &:hover { background: $color-surface; color: $color-dark; }
+  }
+}
+
+.createRow {
+  padding: $space-1 0 $space-1 calc(var(--depth, 0) * 18px + 10px);
+}
+
+.createForm {
+  @include flex-row($space-2);
+  color: $color-muted;
+
+  input {
+    flex: 1;
+    min-width: 0;
+    padding: 5px $space-2;
+    border-radius: $radius-xs;
+    border: $border-width solid $color-primary;
+    font-family: $font-mono;
+    font-size: $size-2xs;
+    outline: none;
+  }
+}
+
+.error {
+  display: block;
+  margin-top: $space-1;
+  font-size: $size-3xs;
+  color: $color-primary;
+}
+
+.spacer { flex: 1 1 auto; }
+
+.hint {
+  margin: $space-3 10px 10px;
+  padding: $space-3;
+  border-radius: $radius-sm;
+  background: $color-sunken;
+  font-size: $size-2xs;
+  line-height: 1.45;
+
+  b { display: block; margin-bottom: $space-1; font-family: $font-label; color: $color-dark; }
+}
