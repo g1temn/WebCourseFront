@@ -1,0 +1,47 @@
+@use "@/styles" as *;
+
+.section {
+  @include section-padding;
+  background: $color-surface;
+  border-top: $border-width solid $color-border;
+}
+
+.inner {
+  @include flex-wrap($space-6, flex-start);
+  @include desktop-up { gap: $space-12; }
+}
+
+.intro {
+  flex: 1 1 300px;
+  min-width: 0;
+}
+
+.text {
+  display: none;
+  margin-top: $space-4;
+  color: $color-muted;
+  @include desktop-up { display: block; }
+}
+
+.list {
+  flex: 2 1 560px;
+  min-width: 0;
+  @include flex-col($space-3);
+}
+
+.more {
+  align-self: center;
+  margin-top: $space-3;
+  padding: $space-3 $space-6;
+  border-radius: $radius-pill;
+  border: $border-width-control solid $color-border;
+  background: $color-surface;
+  color: $color-dark;
+  font-family: $font-label;
+  font-size: $size-sm;
+  font-weight: $weight-semibold;
+  cursor: pointer;
+
+  &:hover { border-color: $color-dark; }
+  @include phone-only { align-self: stretch; margin-top: 0; }
+}

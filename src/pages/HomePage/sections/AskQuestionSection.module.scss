@@ -1,0 +1,65 @@
+@use "@/styles" as *;
+
+.section {
+  padding-bottom: $space-12;
+  background: $color-surface;
+  @include tablet-up { padding-bottom: $space-16; }
+  @include desktop-up { padding-bottom: $space-22; }
+}
+
+.card {
+  @include flex-wrap($space-5, flex-start);
+  padding: $space-5;
+  border-radius: $radius-lg;
+  border: $border-width solid $color-border;
+  background: $color-bg;
+
+  @include tablet-up { padding: $space-8; gap: $space-6; }
+  @include desktop-up { padding: $space-12; gap: $space-12; }
+}
+
+.intro {
+  flex: 1 1 300px;
+  min-width: 0;
+}
+
+.title {
+  font-family: $font-display;
+  font-weight: $weight-semibold;
+  font-size: $size-h2-phone;
+  line-height: 1.25;
+  color: $color-dark;
+  @include tablet-up { font-size: 26px; }
+  @include desktop-up { font-size: $size-h2-card; }
+}
+
+.text {
+  display: none;
+  margin-top: 14px;
+  color: $color-muted;
+  @include desktop-up { display: block; }
+}
+
+.form {
+  flex: 2 1 520px;
+  min-width: 0;
+  @include grid-cols(1, 18px);
+  @include tablet-up { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.submit {
+  @include grid-full-row;
+  @include flex-wrap($space-4);
+
+  @include phone-only {
+    flex-direction: column;
+    align-items: stretch;
+    button { width: 100%; }
+  }
+}
+
+.success {
+  @include inline-flex($space-2);
+  font-weight: $weight-semibold;
+  color: $color-success;
+}

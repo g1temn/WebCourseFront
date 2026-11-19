@@ -1,0 +1,138 @@
+@use "@/styles" as *;
+
+.section {
+  padding-bottom: $section-y-phone;
+  @include tablet-up { padding-block: 0 $section-y-tablet; }
+  @include desktop-up { padding-bottom: $section-y; }
+}
+
+.card {
+  @include bg-overlay($color-overlay-dark, "@/assets/images/bg-code.jpg");
+  @include flex-wrap($space-8);
+  color: $color-on-dark;
+  border-radius: $radius-lg;
+  padding: $space-6 $space-5;
+
+  @include tablet-up { padding: $space-8; flex-wrap: nowrap; }
+  @include desktop-up { padding: $space-12; gap: $space-12; flex-wrap: wrap; }
+}
+
+.text {
+  flex: 1 1 420px;
+  min-width: 0;
+}
+
+.eyebrow {
+  @include eyebrow;
+  font-size: $size-2xs;
+  @include desktop-up { font-size: $size-xs; }
+}
+
+.title {
+  @include heading-2;
+  color: $color-white;
+  margin: 10px 0 $space-3;
+  @include tablet-up { font-size: $size-h2-phone; }
+  @include desktop-up { font-size: 34px; margin-bottom: $space-4; }
+}
+
+.lead,
+.leadTablet,
+.leadPhone {
+  font-size: $size-sm;
+  color: $color-on-dark;
+  margin-bottom: $space-6;
+  @include desktop-up { font-size: $size-body; }
+}
+
+.lead { display: none; @include desktop-up { display: block; } }
+.leadTablet { display: none; @include tablet-only { display: block; margin-bottom: 0; } }
+.leadPhone { @include tablet-up { display: none; } }
+
+.features {
+  display: none;
+  @include desktop-up {
+    @include reset-list;
+    @include flex-col($space-3);
+    margin-bottom: $space-8;
+  }
+
+  li { @include flex-row($space-3); }
+  svg { color: $color-check-on-dark; }
+}
+
+.cta {
+  @include phone-only { > * { width: 100%; } }
+  @include tablet-only { display: none; }
+}
+
+.ctaTablet {
+  display: none;
+  @include tablet-only { display: flex; align-items: center; flex: 0 0 auto; }
+}
+
+.preview {
+  display: none;
+  @include desktop-up {
+    flex: 1 1 420px;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    background: $color-surface;
+    border-radius: $radius-md;
+    overflow: hidden;
+  }
+}
+
+.previewCode {
+  background: $color-code-bg;
+  border-right: $border-width solid $color-border;
+
+  pre {
+    padding: 14px;
+    @include mono($size-code-sm);
+    color: $color-text;
+    white-space: pre;
+  }
+}
+
+.previewTabs {
+  @include flex-row($space-1);
+  padding: 10px $space-3;
+  border-bottom: $border-width solid $color-border;
+  font-family: $font-mono;
+  font-size: $size-3xs;
+  color: $color-muted;
+
+  span { padding: 3px $space-2; }
+}
+
+.previewTabActive {
+  border-radius: $radius-xs;
+  background: $color-surface;
+  color: $color-text;
+}
+
+.sel { color: $code-tag; }
+.prop { color: $code-attr; }
+.val { color: $code-string; }
+
+.previewResult {
+  padding: 22px;
+  font-family: Georgia, serif;
+  color: $color-text;
+}
+
+.previewHeading {
+  font-size: 26px;
+  font-weight: $weight-bold;
+  color: $color-primary;
+}
+
+.previewCard {
+  margin-top: $space-3;
+  padding: 14px;
+  border-radius: $radius-sm;
+  background: $color-sunken;
+  font-size: $size-xs;
+}

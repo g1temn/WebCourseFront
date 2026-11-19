@@ -1,0 +1,117 @@
+@use "@/styles" as *;
+
+.hero {
+  @include bg-overlay($color-overlay-dark, "@/assets/images/bg-code.jpg");
+  padding: $space-6 0 $space-10;
+  @include tablet-up { padding: $space-12 0 $space-14; }
+  @include desktop-up { padding: $space-18 0 $space-20; }
+}
+
+.inner {
+  @include flex-wrap($space-8);
+  @include desktop-up { gap: $space-12; }
+}
+
+.text {
+  flex: 1 1 440px;
+  min-width: 0;
+}
+
+.badges {
+  @include flex-wrap($space-2);
+  @include phone-only { flex-direction: column; align-items: flex-start; }
+}
+
+.badge {
+  @include inline-flex($space-2);
+  padding: 6px 14px;
+  border-radius: $radius-pill;
+  background: $color-on-dark-fill;
+  border: $border-width solid $color-on-dark-line;
+  font-family: $font-label;
+  font-size: $size-2xs;
+  font-weight: $weight-medium;
+  color: $color-on-dark-muted;
+
+  img { height: 20px; width: auto; }
+  @include tablet-up { font-size: $size-xs; }
+}
+
+.title {
+  @include display;
+  color: $color-white;
+  margin: $space-4 0 $space-3;
+  span { color: $color-primary-on-dark; }
+
+  @include tablet-up { margin: $space-6 0 $space-5; }
+}
+
+.lead {
+  font-size: $size-ui;
+  line-height: $line-body;
+  color: $color-on-dark-muted;
+  margin-bottom: $space-6;
+  max-width: 540px;
+
+  @include tablet-up { max-width: 600px; font-size: $size-body; margin-bottom: $space-8; }
+  @include desktop-up { font-size: $size-lead; max-width: 540px; }
+}
+
+.leadFull {
+  display: none;
+  @include tablet-up { display: block; }
+}
+
+.leadShort {
+  @include tablet-up { display: none; }
+}
+
+.actions {
+  @include flex-wrap($space-3);
+  @include phone-only {
+    flex-direction: column;
+    align-items: stretch;
+    > * { width: 100%; }
+  }
+}
+
+.stats {
+  display: none;
+  margin: 44px 0 0;
+
+  @include desktop-up { @include flex-wrap($space-10); }
+}
+
+.stat {
+  @include flex-row(10px);
+  white-space: nowrap;
+
+  dt {
+    font-family: $font-display;
+    font-weight: $weight-semibold;
+    font-size: $size-stat;
+    line-height: 1;
+    color: $color-white;
+  }
+  dd {
+    margin: 0;
+    font-size: $size-sm;
+    line-height: 1.2;
+    color: $color-on-dark-muted;
+  }
+}
+
+.figure {
+  flex: 1.25 1 560px;
+  min-width: 0;
+  margin: 0;
+
+  img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 5 / 4;
+    object-fit: cover;
+    border-radius: $radius-lg;
+    border: $border-width solid $color-on-dark-line;
+  }
+}

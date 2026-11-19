@@ -1,0 +1,131 @@
+@use "@/styles" as *;
+
+.section {
+  @include section-padding;
+}
+
+.head {
+  @include flex-wrap($space-5, flex-end);
+  justify-content: space-between;
+  margin-bottom: $space-5;
+  @include tablet-up { margin-bottom: $space-7; }
+}
+
+.filtersFull {
+  display: none;
+  @include desktop-up { display: block; }
+}
+
+.filtersShort {
+  @include desktop-up { display: none; }
+}
+
+.tableWrap {
+  background: $color-surface;
+  border: $border-width solid $color-border;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  overflow: hidden;
+  @include phone-only { border-radius: $radius-md; box-shadow: none; }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: $size-ui;
+
+  th {
+    padding: $space-4 $space-3;
+    border-bottom: $border-width solid $color-border;
+    text-align: left;
+    font-family: $font-label;
+    font-size: $size-2xs;
+    font-weight: $weight-semibold;
+    letter-spacing: $tracking-caps-sm;
+    text-transform: uppercase;
+    color: $color-muted;
+  }
+
+  td {
+    padding: 18px $space-3;
+    border-bottom: $border-width solid $color-border;
+    vertical-align: middle;
+  }
+
+  tbody tr:nth-child(even) { background: $color-bg; }
+  tbody tr:last-child td { border-bottom: 0; }
+
+  tbody tr { position: relative; transition: background-color $transition-fast; }
+  tbody tr:hover { background: $color-primary-soft; }
+
+  @include tablet-only {
+    thead { display: none; }
+    td { padding: 14px $space-3; }
+  }
+
+  @include phone-only {
+    thead { display: none; }
+    tbody tr {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $space-2;
+      padding: 14px $space-4;
+      border-bottom: $border-width solid $color-border;
+    }
+    tbody tr:nth-child(even) { background: transparent; }
+    td { padding: 0; border: 0; }
+  }
+}
+
+.caption { @include visually-hidden; }
+
+.colLab {
+  width: 140px;
+  padding-left: $space-6 !important;
+  @include phone-only { width: auto; padding-left: 0 !important; }
+}
+
+.colTitle { font-weight: $weight-semibold; }
+
+.colTopic {
+  color: $color-muted;
+  font-size: $size-sm;
+  @include below-desktop { display: none; }
+}
+
+.colArrow {
+  width: 64px;
+  padding-right: $space-6 !important;
+  color: $color-primary;
+  @include phone-only { display: none; }
+}
+
+.link {
+  color: $color-dark;
+  text-decoration: none;
+
+  &::after { content: ""; position: absolute; inset: 0; }
+  &:hover { color: $color-primary; }
+}
+
+.phoneHidden {
+  @include phone-only { display: none !important; }
+}
+
+.more {
+  @include reset-button;
+  display: none;
+  @include phone-only {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    border-top: $border-width solid $color-border;
+    font-family: $font-label;
+    font-weight: $weight-semibold;
+    font-size: $size-sm;
+    color: $color-primary;
+  }
+}
+
+.srOnly { @include visually-hidden; }

@@ -1,0 +1,94 @@
+@use "sass:list";
+@use "@/styles" as *;
+
+.section {
+  @include section-padding($space-18);
+  background: $color-surface;
+  border-block: $border-width solid $color-border;
+}
+
+.grid {
+  margin-top: $space-6;
+  @include grid-cols(1, $space-3);
+
+  @include tablet-up { @include grid-cols(3, $space-4); margin-top: $space-10; }
+  @include desktop-up { gap: $space-6; }
+}
+
+.card {
+  @include flex-row($space-4);
+  padding: $space-4;
+  border-radius: $radius-md;
+  background: $color-bg;
+  border: $border-width solid $color-border;
+  text-decoration: none;
+  color: $color-text;
+  transition: border-color $transition-fast, box-shadow $transition-fast;
+
+  &:hover { border-color: $color-muted; box-shadow: $shadow-card; color: $color-text; }
+
+  @include tablet-up {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $space-3;
+    padding: $space-5;
+  }
+  @include desktop-up { padding: $space-7; gap: 14px; border-radius: $radius-lg; }
+}
+
+.icon {
+  flex: 0 0 56px;
+  width: 56px;
+  height: 56px;
+  @include tablet-up { width: 80px; height: 80px; flex-basis: auto; }
+  @include desktop-up { width: 104px; height: 104px; }
+}
+
+.body {
+  @include flex-col($space-1);
+  min-width: 0;
+  @include tablet-up { gap: $space-3; flex: 1; }
+  @include desktop-up { gap: 14px; }
+}
+
+.name {
+  font-family: $font-label;
+  font-weight: $weight-semibold;
+  font-size: $size-ui;
+  color: $color-dark;
+  @include tablet-up { font-family: $font-display; font-size: $size-h4; }
+  @include desktop-up { font-size: 22px; }
+}
+
+.text {
+  display: none;
+  font-size: $size-ui;
+  color: $color-muted;
+  @include desktop-up { display: block; }
+}
+
+.short {
+  font-size: $size-xs;
+  color: $color-muted;
+  @include desktop-up { display: none; }
+}
+
+.phoneCount {
+  @include tablet-up { display: none; }
+}
+
+.count {
+  display: none;
+  @include tablet-up {
+    @include inline-flex(6px);
+    margin-top: auto;
+    font-family: $font-label;
+    font-weight: $weight-semibold;
+    font-size: $size-xs;
+  }
+  @include desktop-up { font-size: $size-sm; }
+}
+
+@each $tech, $pair in $tech-colors {
+  .#{$tech} .count { color: list.nth($pair, 1); }
+}
