@@ -1,0 +1,147 @@
+@use "@/styles" as *;
+
+.footer {
+  margin-top: auto;
+  background: $color-dark;
+  color: $color-on-dark;
+  border-top: $header-border solid $color-primary;
+}
+
+.inner {
+  @include container;
+  padding-top: $space-10;
+  padding-bottom: $space-7;
+  @include tablet-up {
+    padding-top: $space-14;
+  }
+}
+
+.grid {
+  @include grid-cols(2, $space-8 $space-6);
+  align-items: start;
+
+  @include desktop-up {
+    grid-template-columns: minmax(0, 2.3fr) minmax(0, 1fr) minmax(0, 1fr);
+    gap: $space-12;
+  }
+}
+
+.about {
+  @include grid-full-row;
+  @include desktop-up {
+    grid-column: auto;
+  }
+}
+
+.cards {
+  @include grid-cols(1, $space-4);
+  @include tablet-up {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.brandCard {
+  @include flex-col($space-5);
+  justify-content: center;
+  padding: 18px $space-5;
+  border-radius: $radius-md;
+  border: $border-width solid $color-on-dark-line;
+}
+
+.brand {
+  @include flex-row(14px);
+}
+
+.brandName {
+  @include flex-col;
+  line-height: 1.1;
+  font-family: $font-display;
+  white-space: nowrap;
+
+  b {
+    font-weight: $weight-bold;
+    font-size: $size-h4;
+    color: $color-white;
+  }
+  span {
+    font-weight: $weight-medium;
+    font-size: $size-sm;
+    color: $color-on-dark;
+  }
+}
+
+.university {
+  align-self: flex-start;
+  height: 52px;
+  width: auto;
+}
+
+.mapCard {
+  position: relative;
+  display: block;
+  min-height: 150px;
+  border-radius: $radius-md;
+  overflow: hidden;
+  border: $border-width solid $color-on-dark-line;
+  background: $color-map-ground;
+  text-decoration: none;
+
+  iframe {
+    position: absolute;
+    inset: 0;
+  }
+
+  &:hover .mapBar {
+    background: $color-primary;
+  }
+}
+
+.mapBar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: $space-2 $space-3;
+  background: $color-dark-bar;
+  color: $color-white;
+  font-family: $font-label;
+  font-size: $size-2xs;
+  font-weight: $weight-semibold;
+  transition: background-color $transition-fast;
+}
+
+.text {
+  margin-top: 18px;
+  font-size: $size-sm;
+  color: $color-on-dark-muted;
+}
+
+.column {
+  @include flex-col(10px);
+  font-size: $size-sm;
+  font-style: normal;
+
+  b {
+    font-family: $font-label;
+    color: $color-white;
+  }
+  a {
+    color: $color-on-dark;
+    text-decoration: none;
+  }
+  a:hover {
+    color: $color-white;
+    text-decoration: underline;
+  }
+  span {
+    color: $color-on-dark-muted;
+  }
+}
+
+.bottom {
+  margin-top: $space-10;
+  padding-top: 18px;
+  border-top: $border-width solid $color-on-dark-line;
+  font-size: $size-xs;
+  color: $color-on-dark-muted;
+}

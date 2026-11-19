@@ -1,0 +1,183 @@
+@use "@/styles" as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: $z-header;
+  background: $color-dark;
+  border-bottom: $header-border solid $color-primary;
+}
+
+.inner {
+  @include container;
+  @include flex-between($space-6);
+  height: $header-height-phone;
+  @include tablet-up {
+    height: $header-height;
+  }
+}
+
+.wide {
+  max-width: $container-wide;
+}
+
+.brand {
+  text-decoration: none;
+  min-width: 0;
+}
+
+.logoFull {
+  display: none;
+  @include tablet-up {
+    display: flex;
+  }
+}
+
+.logoShort {
+  display: flex;
+  @include tablet-up {
+    display: none;
+  }
+}
+
+.nav {
+  display: none;
+  @include desktop-up {
+    @include flex-wrap($space-1);
+  }
+}
+
+.navLink {
+  padding: $space-2 14px;
+  border-radius: $radius-pill;
+  font-family: $font-label;
+  font-size: $size-sm;
+  font-weight: $weight-medium;
+  color: $color-on-dark;
+  text-decoration: none;
+  transition: background-color $transition-fast;
+
+  &:hover {
+    color: $color-white;
+    background: $color-on-dark-hover;
+  }
+}
+
+.navActive,
+.navActive:hover {
+  background: $color-primary;
+  color: $color-white;
+  font-weight: $weight-semibold;
+}
+
+.actions {
+  @include flex-row($space-3);
+}
+
+.editorButton {
+  display: none;
+  @include desktop-up {
+    @include inline-flex($space-2);
+    padding: 10px 18px;
+    border-radius: $radius-pill;
+    border: $border-width-control solid $color-white;
+    font-family: $font-label;
+    font-size: $size-sm;
+    font-weight: $weight-semibold;
+    color: $color-white;
+    text-decoration: none;
+    &:hover {
+      background: $color-white;
+      color: $color-dark;
+    }
+  }
+}
+
+.editorIcon {
+  display: none;
+  @include tablet-only {
+    @include flex-center;
+    width: 46px;
+    height: 46px;
+    border-radius: $radius-round;
+    border: $border-width-control solid $color-white;
+    color: $color-white;
+    &:hover {
+      background: $color-white;
+      color: $color-dark;
+    }
+  }
+}
+
+.burger {
+  @include reset-button;
+  @include flex-center;
+  width: $tap-size;
+  height: $tap-size;
+  border-radius: $radius-sm;
+  border: $border-width solid $color-on-dark-line;
+  background: $color-on-dark-fill;
+  color: $color-white;
+  @include desktop-up {
+    display: none;
+  }
+}
+
+.menu {
+  position: fixed;
+  inset: calc(#{$header-height-phone} + #{$header-border}) 0 0;
+  z-index: $z-drawer;
+  padding: $space-6 $gutter-phone $space-8;
+  background: $color-dark;
+  overflow-y: auto;
+  @include flex-col($space-6);
+
+  @include tablet-up {
+    inset: calc(#{$header-height} + #{$header-border}) 0 auto;
+    padding: $space-6 $gutter-tablet $space-8;
+    box-shadow: $shadow-pop;
+  }
+  @include desktop-up {
+    display: none;
+  }
+}
+
+.menuNav {
+  @include flex-col;
+}
+
+.menuLink {
+  @include flex-between($space-3);
+  padding: $space-4 $space-2;
+  border-bottom: $border-width solid $color-on-dark-line;
+  font-family: $font-label;
+  font-size: $size-h4;
+  font-weight: $weight-medium;
+  color: $color-on-dark;
+  text-decoration: none;
+
+  &:hover {
+    color: $color-white;
+  }
+}
+
+.menuActive {
+  color: $color-primary-on-dark;
+  font-weight: $weight-semibold;
+}
+
+.menuEditor {
+  @include inline-flex($space-2);
+  justify-content: center;
+  padding: 15px 26px;
+  border-radius: $radius-pill;
+  background: $color-primary;
+  color: $color-white;
+  font-family: $font-label;
+  font-weight: $weight-semibold;
+  text-decoration: none;
+  &:hover {
+    background: $color-primary-hover;
+    color: $color-white;
+  }
+}

@@ -1,0 +1,24 @@
+@use "@/styles" as *;
+
+.skip {
+  @include visually-hidden;
+  &:focus {
+    position: fixed;
+    top: $space-3;
+    left: $space-3;
+    z-index: $z-modal;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: $space-3 $space-4;
+    clip-path: none;
+    border-radius: $radius-sm;
+    background: $color-surface;
+    color: $color-primary;
+  }
+}
+
+.loading {
+  flex: 1;
+  min-height: 60vh;
+}
