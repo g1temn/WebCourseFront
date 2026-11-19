@@ -1,0 +1,50 @@
+@use "@/styles" as *;
+
+.grid {
+  margin-block: $space-6;
+  @include auto-grid(220px, $space-4);
+}
+
+.two {
+  @include tablet-up {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.card {
+  background: $color-surface;
+  border: $border-width solid $color-border;
+  border-radius: $radius-md;
+  overflow: hidden;
+
+  > pre {
+    border-top: $border-width solid $color-border;
+  }
+}
+
+.title {
+  padding: 14px 18px;
+  font-family: $font-label;
+  font-weight: $weight-semibold;
+  color: $color-dark;
+}
+
+.body {
+  padding: 0 18px $space-4;
+  font-size: $size-sm;
+
+  ul {
+    margin: 0;
+    padding-left: $space-5;
+  }
+  li + li {
+    margin-top: $space-1;
+  }
+}
+
+.plus .title {
+  color: $color-success;
+}
+.minus .title {
+  color: $color-primary;
+}

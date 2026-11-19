@@ -1,0 +1,155 @@
+@use "@/styles" as *;
+
+.hint {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: $space-4 !important;
+  padding: $space-3 14px;
+  border-radius: $radius-md;
+  background: $color-primary-soft;
+  font-size: $size-sm;
+}
+
+.hintIcon {
+  flex: 0 0 auto;
+  color: $color-primary;
+}
+
+.grid {
+  @include auto-grid(190px, $space-3);
+  @include phone-only {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.card {
+  @include flex-col;
+  border: $border-width solid $color-border;
+  border-radius: $radius-md;
+  overflow: hidden;
+  background: $color-surface;
+  min-width: 0;
+}
+
+.thumb {
+  display: block;
+  height: 110px;
+  background: $color-sunken;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+}
+
+.txt {
+  @include flex-center;
+  font-family: $font-mono;
+  font-size: $size-2xs;
+  color: $color-muted;
+}
+
+.body {
+  flex: 1;
+  @include flex-col($space-2);
+  padding: 10px 10px $space-3;
+}
+
+.name {
+  @include flex-col(2px);
+  padding: 0 2px;
+  min-width: 0;
+}
+
+.label {
+  font-family: $font-label;
+  font-size: $size-xs;
+  font-weight: $weight-semibold;
+}
+
+.file,
+.fileSmall {
+  font-family: $font-mono;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file {
+  font-size: $size-2xs;
+  font-weight: $weight-medium;
+}
+.fileSmall {
+  font-size: $size-3xs;
+  color: $color-muted;
+}
+
+.actions {
+  margin-top: auto;
+  display: flex;
+  gap: 6px;
+}
+
+.copy,
+.downloadWide {
+  flex: 1;
+  @include inline-flex(6px);
+  justify-content: center;
+  min-height: 36px;
+  padding: 0 $space-2;
+  border-radius: $radius-sm;
+  border: $border-width solid $color-border;
+  background: $color-surface;
+  font-family: $font-label;
+  font-size: $size-3xs;
+  font-weight: $weight-semibold;
+  color: $color-primary;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    border-color: $color-primary;
+  }
+}
+
+.downloadWide {
+  color: $color-text;
+  &:hover {
+    border-color: $color-dark;
+    color: $color-text;
+  }
+}
+
+.copied {
+  border-color: $color-success;
+  background: $color-success-soft;
+  color: $color-success;
+  &:hover {
+    border-color: $color-success;
+  }
+}
+
+.download {
+  flex: 0 0 36px;
+  height: 36px;
+  @include flex-center;
+  border-radius: $radius-sm;
+  border: $border-width solid $color-border;
+  color: $color-text;
+  &:hover {
+    border-color: $color-dark;
+    color: $color-text;
+  }
+}
+
+@include phone-only {
+  .copy {
+    font-size: 11px;
+    padding: 0 $space-1;
+    svg {
+      display: none;
+    }
+  }
+}

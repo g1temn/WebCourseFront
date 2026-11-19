@@ -1,0 +1,30 @@
+@use "@/styles" as *;
+
+.pre {
+  margin: 0;
+  padding: 18px $space-5;
+  background: $color-code-bg;
+  @include mono($size-code);
+  color: $color-text;
+  overflow-x: auto;
+  tab-size: 2;
+
+  code {
+    padding: 0;
+    background: none;
+    color: inherit;
+    font-size: inherit;
+    overflow-wrap: normal;
+  }
+
+  @include phone-only {
+    padding: 14px $space-4;
+    font-size: $size-code-sm;
+  }
+}
+
+.small {
+  padding: $space-3 18px;
+  font-size: $size-code-sm;
+  line-height: 1.7;
+}

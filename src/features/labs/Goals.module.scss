@@ -1,0 +1,47 @@
+@use "@/styles" as *;
+
+.goals {
+  margin-bottom: $space-12;
+  padding: $space-6 $space-5;
+  border-radius: $radius-lg;
+  background: $color-surface;
+  border: $border-width solid $color-border;
+  scroll-margin-top: $header-height + $space-20;
+  @include tablet-up {
+    padding: $space-7 $space-8;
+  }
+  @include desktop-up {
+    margin-bottom: $space-14;
+    scroll-margin-top: $header-height + $space-6;
+  }
+}
+
+.title {
+  font-family: $font-display;
+  font-weight: $weight-semibold;
+  font-size: $size-h3;
+  color: $color-dark;
+  margin-bottom: 18px;
+}
+
+.list {
+  @include reset-list;
+  @include flex-col(14px);
+
+  li {
+    display: flex;
+    gap: 14px;
+  }
+}
+
+.number {
+  flex: 0 0 28px;
+  height: 28px;
+  border-radius: $radius-round;
+  background: $color-primary-soft;
+  color: $color-primary;
+  font-family: $font-label;
+  font-weight: $weight-bold;
+  font-size: $size-xs;
+  @include flex-center;
+}

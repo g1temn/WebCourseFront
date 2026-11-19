@@ -1,0 +1,60 @@
+@use "@/styles" as *;
+
+.listing {
+  margin-block: $space-6;
+  border: $border-width solid $color-border;
+  border-radius: $radius-md;
+  overflow: hidden;
+}
+
+.head {
+  @include flex-between($space-3);
+  padding: 10px $space-4 10px $space-5;
+  background: $color-sunken;
+  border-bottom: $border-width solid $color-border;
+  @include phone-only {
+    padding: $space-2 $space-2 $space-2 $space-4;
+  }
+}
+
+.caption {
+  font-size: $size-xs;
+  color: $color-muted;
+  min-width: 0;
+  b {
+    font-family: $font-label;
+    color: $color-text;
+  }
+}
+
+.copy {
+  @include inline-flex(6px);
+  flex: 0 0 auto;
+  min-height: 34px;
+  padding: 6px $space-3;
+  border-radius: $radius-sm;
+  border: $border-width solid $color-border;
+  background: $color-surface;
+  font-size: $size-2xs;
+  font-weight: $weight-medium;
+  color: $color-text;
+  cursor: pointer;
+  &:hover {
+    border-color: $color-muted;
+  }
+}
+
+.copied {
+  border-color: $color-success;
+  background: $color-success-soft;
+  color: $color-success;
+}
+
+.result {
+  padding: $space-4 $space-5 18px;
+  border-top: $border-width solid $color-border;
+  background: $color-sunken;
+  @include phone-only {
+    padding: $space-3;
+  }
+}

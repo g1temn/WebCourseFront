@@ -1,0 +1,38 @@
+@use "@/styles" as *;
+
+.flow {
+  @include reset-list;
+  margin-block: $space-6;
+  @include auto-grid(170px, $space-3);
+}
+
+.step {
+  @include flex-col($space-2, flex-start);
+  padding: $space-4;
+  border-radius: $radius-md;
+  background: $color-surface;
+  border: $border-width solid $color-border;
+
+  b {
+    font-family: $font-label;
+    color: $color-dark;
+    line-height: 1.35;
+  }
+}
+
+.number {
+  @include flex-center;
+  width: 32px;
+  height: 32px;
+  border-radius: $radius-round;
+  background: $color-primary;
+  color: $color-white;
+  font-family: $font-label;
+  font-weight: $weight-bold;
+  font-size: $size-xs;
+}
+
+.text {
+  font-size: $size-xs;
+  color: $color-muted;
+}

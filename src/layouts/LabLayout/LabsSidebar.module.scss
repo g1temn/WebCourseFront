@@ -1,0 +1,132 @@
+@use "sass:list";
+@use "@/styles" as *;
+
+.nav {
+  @include flex-col($space-6);
+  font-size: $size-sm;
+}
+
+.groupTitle {
+  @include flex-row($space-2);
+  margin-bottom: $space-2;
+  font-family: $font-label;
+  font-size: $size-3xs;
+  font-weight: $weight-bold;
+  letter-spacing: $tracking-caps;
+  text-transform: uppercase;
+}
+
+.groupDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: currentColor;
+}
+
+@each $tech, $pair in $tech-colors {
+  .#{$tech} {
+    color: list.nth($pair, 1);
+  }
+}
+
+.list {
+  @include flex-col(2px);
+}
+
+.link {
+  display: flex;
+  gap: 10px;
+  padding: $space-2 $space-3;
+  border-radius: $radius-sm;
+  font-family: $font-label;
+  font-weight: $weight-medium;
+  line-height: 1.45;
+  color: $color-text;
+  text-decoration: none;
+
+  &:hover {
+    background: $color-sunken;
+    color: $color-dark;
+  }
+
+  &[aria-current="page"] {
+    background: $color-primary-soft;
+    color: $color-primary;
+    font-weight: $weight-semibold;
+    .number {
+      color: $color-primary;
+    }
+  }
+}
+
+.number {
+  color: $color-muted;
+  font-variant-numeric: tabular-nums;
+}
+
+.menu {
+  position: relative;
+  min-width: 0;
+}
+
+.trigger {
+  @include flex-row($space-2);
+  width: 100%;
+  min-height: $tap-size;
+  padding: $space-2 14px;
+  border-radius: $radius-sm;
+  border: $border-width solid $color-border;
+  background: $color-surface;
+  font-size: $size-xs;
+  font-weight: $weight-semibold;
+  color: $color-text;
+  text-align: left;
+  cursor: pointer;
+
+  @include tablet-up {
+    width: auto;
+    border-color: $color-primary;
+    background: $color-primary-soft;
+    color: $color-primary;
+  }
+}
+
+.triggerOpen {
+  border-color: $color-primary;
+}
+
+.triggerText {
+  min-width: 0;
+  line-height: 1.25;
+}
+
+.triggerCurrent {
+  @include phone-only {
+    display: none;
+  }
+}
+
+.panel {
+  position: absolute;
+  left: 0;
+  top: calc(100% + #{$space-2});
+  z-index: $z-dropdown;
+  width: min(372px, calc(100vw - #{$gutter-phone * 2}));
+  max-height: 70vh;
+  overflow-y: auto;
+  padding: $space-4;
+  border-radius: $radius-md;
+  border: $border-width solid $color-border;
+  background: $color-surface;
+  box-shadow: $shadow-pop;
+}
+
+.all {
+  display: block;
+  margin-top: $space-4;
+  padding-top: $space-3;
+  border-top: $border-width solid $color-border;
+  font-family: $font-label;
+  font-size: $size-xs;
+  font-weight: $weight-semibold;
+}

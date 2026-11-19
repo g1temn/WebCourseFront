@@ -1,0 +1,59 @@
+@use "@/styles" as *;
+
+.section {
+  margin-bottom: $space-12;
+  scroll-margin-top: $header-height + $space-20;
+  @include desktop-up {
+    margin-bottom: $space-14;
+    scroll-margin-top: $header-height + $space-6;
+  }
+}
+
+.number {
+  margin-bottom: 6px;
+  font-family: $font-label;
+  font-size: $size-xs;
+  font-weight: $weight-semibold;
+  color: $color-primary;
+}
+
+.head {
+  @include flex-wrap($space-3, flex-end);
+  justify-content: space-between;
+  margin-bottom: $space-4;
+}
+
+.title {
+  font-family: $font-display;
+  font-weight: $weight-semibold;
+  font-size: $size-h2-phone;
+  line-height: 1.25;
+  color: $color-dark;
+  @include tablet-up {
+    font-size: 28px;
+  }
+}
+
+.subheading {
+  @include heading-3;
+  font-size: $size-h4;
+  margin: $space-8 0 $space-3;
+}
+
+.body {
+  > p,
+  > ul,
+  > ol {
+    margin: 0 0 $space-4;
+  }
+  > ul,
+  > ol {
+    padding-left: $space-6;
+  }
+  li + li {
+    margin-top: $space-1;
+  }
+  > :last-child {
+    margin-bottom: 0;
+  }
+}

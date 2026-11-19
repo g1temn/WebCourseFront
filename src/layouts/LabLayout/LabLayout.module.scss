@@ -1,0 +1,84 @@
+@use "@/styles" as *;
+
+.bar {
+  position: sticky;
+  top: calc(#{$header-height-phone} + #{$header-border});
+  z-index: $z-sticky;
+  padding: $space-3 0;
+  background: $color-bg;
+  border-bottom: $border-width solid $color-border;
+
+  @include tablet-up {
+    top: calc(#{$header-height} + #{$header-border});
+  }
+  @include desktop-up {
+    display: none;
+  }
+}
+
+.barInner {
+  @include container($container-wide);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: $space-3;
+
+  @include tablet-up {
+    display: flex;
+    justify-content: space-between;
+    > :last-child {
+      width: 200px;
+    }
+  }
+}
+
+.layout {
+  @include container($container-wide);
+  display: flex;
+  align-items: flex-start;
+  gap: $space-10;
+  padding-top: $space-6;
+  padding-bottom: $space-16;
+
+  @include tablet-up {
+    padding-top: $space-8;
+  }
+  @include desktop-up {
+    padding-bottom: $space-20;
+  }
+}
+
+.sidebar,
+.toc {
+  display: none;
+
+  @include desktop-up {
+    display: block;
+    position: sticky;
+    top: calc(#{$header-height} + #{$header-border} + #{$space-8});
+    max-height: calc(100vh - #{$header-height} - #{$space-12});
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+.sidebar {
+  flex: 0 0 $lab-sidebar-width;
+}
+.toc {
+  flex: 0 0 $lab-toc-width;
+}
+
+.main {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 800px;
+  margin-inline: auto;
+
+  @include desktop-up {
+    margin-inline: 0;
+  }
+}
+
+.loading {
+  min-height: 70vh;
+}

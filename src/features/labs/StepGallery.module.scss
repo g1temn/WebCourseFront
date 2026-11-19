@@ -1,0 +1,46 @@
+@use "@/styles" as *;
+
+.gallery {
+  @include reset-list;
+  @include flex-col($space-3);
+  margin-block: $space-6;
+}
+
+.step {
+  padding: $space-4 $space-5;
+  border-radius: $radius-md;
+  background: $color-surface;
+  border: $border-width solid $color-border;
+  @include phone-only {
+    padding: $space-4;
+  }
+}
+
+.withImage {
+  display: grid;
+  gap: $space-4;
+  @include tablet-up {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+.text {
+  display: flex;
+  gap: $space-3;
+  p {
+    margin: 0;
+  }
+}
+
+.number {
+  flex: 0 0 28px;
+  height: 28px;
+  border-radius: $radius-round;
+  background: $color-primary-soft;
+  color: $color-primary;
+  font-family: $font-label;
+  font-weight: $weight-bold;
+  font-size: $size-xs;
+  @include flex-center;
+}

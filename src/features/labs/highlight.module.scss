@@ -1,0 +1,24 @@
+@use "@/styles" as *;
+
+.tag {
+  color: $code-tag;
+}
+.attr {
+  color: $code-attr;
+}
+.string {
+  color: $code-string;
+}
+.comment {
+  color: $code-comment;
+  font-style: italic;
+}
+.keyword {
+  color: $code-keyword;
+}
+.number {
+  color: $code-number;
+}
+.entity {
+  color: $code-keyword;
+}

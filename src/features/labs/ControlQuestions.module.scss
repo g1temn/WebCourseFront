@@ -1,0 +1,13 @@
+@use "@/styles" as *;
+
+.list {
+  margin: 0;
+  padding: 0 0 0 $space-6;
+  display: grid;
+  gap: 10px;
+
+  li::marker {
+    font-family: $font-label;
+    color: $color-muted;
+  }
+}

@@ -1,0 +1,134 @@
+@use "@/styles" as *;
+
+.section {
+  margin-bottom: $space-12;
+  scroll-margin-top: $header-height + $space-20;
+  @include desktop-up {
+    margin-bottom: $space-14;
+    scroll-margin-top: $header-height + $space-6;
+  }
+}
+
+.head {
+  @include flex-wrap($space-3, flex-end);
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.title {
+  font-family: $font-display;
+  font-weight: $weight-semibold;
+  font-size: $size-h2-phone;
+  line-height: 1.25;
+  color: $color-dark;
+  @include tablet-up {
+    font-size: 28px;
+  }
+}
+
+.counter {
+  font-size: $size-sm;
+  color: $color-muted;
+  b {
+    color: $color-text;
+  }
+}
+
+.progress {
+  height: 8px;
+  border-radius: $radius-pill;
+  background: $color-sunken;
+  margin-bottom: $space-5;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  border-radius: $radius-pill;
+  background: $color-primary;
+  transition: width $transition-base;
+}
+
+.list {
+  @include reset-list;
+  padding: $space-2 0;
+  background: $color-surface;
+  border: $border-width solid $color-border;
+  border-radius: $radius-lg;
+  overflow: hidden;
+}
+
+.step {
+  padding: $space-3 $space-6;
+  @include phone-only {
+    padding: $space-3 $space-4;
+  }
+}
+
+.current {
+  background: $color-bg;
+}
+
+.label {
+  display: flex;
+  gap: 14px;
+  cursor: pointer;
+
+  input {
+    flex: 0 0 20px;
+    width: 20px;
+    height: 20px;
+    margin-top: 3px;
+    accent-color: $color-primary;
+    cursor: pointer;
+  }
+}
+
+.doneText {
+  color: $color-muted;
+  text-decoration: line-through;
+}
+
+.extra {
+  margin: $space-3 0 $space-1 34px;
+  @include flex-col($space-3);
+  @include phone-only {
+    margin-left: 0;
+  }
+
+  figure {
+    margin: 0;
+  }
+}
+
+.code {
+  border: $border-width solid $color-border;
+  border-radius: $radius-sm;
+  overflow: hidden;
+}
+
+.note {
+  font-size: $size-sm;
+  color: $color-muted;
+}
+
+.more {
+  @include reset-button;
+  margin: $space-3 0 0 58px;
+  font-family: $font-label;
+  font-size: $size-sm;
+  font-weight: $weight-semibold;
+  color: $color-primary;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  @include phone-only {
+    margin-left: $space-4;
+  }
+}
+
+.intro {
+  margin-bottom: $space-5;
+  p + p {
+    margin-top: $space-3;
+  }
+}

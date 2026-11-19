@@ -1,0 +1,69 @@
+@use "@/styles" as *;
+
+.figure {
+  margin: $space-6 0;
+}
+
+.inline {
+  margin: 0;
+}
+
+.frame {
+  position: relative;
+  border-radius: $radius-sm;
+  overflow: hidden;
+  border: $border-width solid $color-border;
+  background: $color-surface;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.natural {
+  padding-bottom: $space-12;
+  img {
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+.crop img {
+  height: 300px;
+  object-fit: cover;
+  object-position: top;
+  @include phone-only {
+    height: 200px;
+  }
+}
+
+.zoom {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  @include inline-flex(6px);
+  min-height: 36px;
+  padding: 0 $space-3;
+  border-radius: $radius-pill;
+  border: $border-width solid $color-border;
+  background: $color-surface;
+  font-size: $size-2xs;
+  font-weight: $weight-semibold;
+  color: $color-text;
+  cursor: pointer;
+  box-shadow: $shadow-card;
+  &:hover {
+    border-color: $color-dark;
+  }
+}
+
+.caption {
+  margin-top: 10px;
+  font-size: $size-xs;
+  color: $color-muted;
+  b {
+    font-family: $font-label;
+    color: $color-text;
+  }
+}

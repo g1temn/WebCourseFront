@@ -1,0 +1,150 @@
+@use "@/styles" as *;
+
+.wrap {
+  margin-block: $space-6;
+  background: $color-surface;
+  border: $border-width solid $color-border;
+  border-radius: $radius-md;
+  overflow: hidden;
+}
+
+.head {
+  @include flex-wrap($space-3);
+  justify-content: space-between;
+  padding: 14px $space-5;
+  border-bottom: $border-width solid $color-border;
+  background: $color-sunken;
+  @include phone-only {
+    padding: $space-3 $space-4;
+  }
+}
+
+.title {
+  font-family: $font-label;
+  font-size: $size-sm;
+  font-weight: $weight-semibold;
+  color: $color-dark;
+}
+
+.search {
+  @include flex-row($space-2);
+  padding: 7px $space-3;
+  border-radius: $radius-sm;
+  background: $color-surface;
+  border: $border-width solid $color-border;
+  font-size: $size-xs;
+  color: $color-muted;
+
+  &:focus-within {
+    border-color: $color-primary;
+    box-shadow: $shadow-focus;
+  }
+
+  input {
+    width: 160px;
+    border: 0;
+    outline: none;
+    background: transparent;
+    font-size: $size-xs;
+    color: $color-text;
+  }
+
+  @include phone-only {
+    width: 100%;
+    input {
+      width: 100%;
+    }
+  }
+}
+
+.scroll {
+  @include scroll-x;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: $size-sm;
+
+  th {
+    padding: 10px $space-5;
+    border-bottom: $border-width solid $color-border;
+    text-align: left;
+    font-family: $font-label;
+    font-size: $size-2xs;
+    font-weight: $weight-semibold;
+    color: $color-muted;
+    white-space: nowrap;
+  }
+
+  td {
+    padding: $space-3 $space-5;
+    border-bottom: $border-width solid $color-border;
+    vertical-align: top;
+  }
+
+  tbody tr:last-child td {
+    border-bottom: 0;
+  }
+
+  td code {
+    white-space: nowrap;
+  }
+}
+
+.keyed td:first-child {
+  width: 1%;
+  white-space: nowrap;
+  padding-right: $space-6;
+}
+
+@include phone-only {
+  .keyed {
+    thead {
+      display: none;
+    }
+    tr {
+      display: block;
+      padding: $space-3 $space-4;
+      border-bottom: $border-width solid $color-border;
+    }
+    tbody tr:last-child {
+      border-bottom: 0;
+    }
+    td {
+      display: block;
+      padding: 0;
+      border: 0;
+    }
+    td:first-child {
+      width: auto;
+      margin-bottom: $space-1;
+    }
+  }
+}
+
+.empty {
+  color: $color-muted;
+  text-align: center;
+}
+
+.foot {
+  padding: $space-3 $space-5;
+  border-top: $border-width solid $color-border;
+
+  button {
+    @include reset-button;
+    font-family: $font-label;
+    font-size: $size-xs;
+    font-weight: $weight-semibold;
+    color: $color-primary;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    &:hover {
+      color: $color-primary-hover;
+    }
+  }
+  @include phone-only {
+    padding: $space-3 $space-4;
+  }
+}
